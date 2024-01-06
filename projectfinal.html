@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Your head content here -->
+</head>
+<body>
+  <div class="gallery">
+    <img id="image1" src="image1.jpg" alt="Description 1">
+    <!-- Add more image tags for your 6 images -->
+  </div>
+  <div id="largeImage">
+    <!-- Large image display here -->
+  </div>
+  <script>
+    // Image elements
+const images = document.querySelectorAll('.gallery img');
+const largeImage = document.getElementById('largeImage');
+
+// Function to handle mouseover event
+function handleMouseOver(e) {
+  largeImage.innerHTML = e.target.alt;
+  largeImage.style.backgroundImage = `url(${e.target.src})`;
+}
+
+// Function to handle mouseleave event
+function handleMouseLeave() {
+  largeImage.innerHTML = "Hover over an image below to display here.";
+  largeImage.style.backgroundImage = 'none';
+}
+
+// Function to handle focus event
+function handleFocus(e) {
+  largeImage.innerHTML = e.target.alt;
+  largeImage.style.backgroundImage = `url(${e.target.src})`;
+}
+
+// Function to handle blur event
+function handleBlur() {
+  largeImage.innerHTML = "Hover over an image below to display here.";
+  largeImage.style.backgroundImage = 'none';
+}
+
+// Event listeners for mouseover, mouseleave, focus, blur
+images.forEach(image => {
+  image.addEventListener('mouseover', handleMouseOver);
+  image.addEventListener('mouseleave', handleMouseLeave);
+  image.addEventListener('focus', handleFocus);
+  image.addEventListener('blur', handleBlur);
+});
+
+// Function for onload event
+function addTabIndex() {
+  images.forEach((image, index) => {
+    image.setAttribute('tabindex', index + 1);
+  });
+}
+
+// Call the addTabIndex function on window onload
+window.onload = addTabIndex;
+
+  </script>
+</body>
+</html>
