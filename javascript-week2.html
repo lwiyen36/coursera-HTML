@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img id="previewPic" class="preview" src="example.jpg" alt="Example Image">
+<div id="image">Hover over an image below to display here.</div>
+<script>
+  function upDate(e) {
+    console.log("Event triggered");
+    // Your code for updating elements
+}
+function upDate(e) {
+    console.log("Event triggered");
+    let previewPic = e.target; // Assuming this is the event target
+    console.log("Alt:", previewPic.alt);
+    console.log("Source:", previewPic.src);
+    // Continue with your code
+}
+function undo() {
+    document.getElementById("image").style.backgroundImage = "url('')";
+    document.getElementById("image").innerText = "Hover over an image below to display here.";
+}
+
+</script>
+  </body>
+</html>
